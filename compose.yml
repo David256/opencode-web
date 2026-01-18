@@ -1,0 +1,18 @@
+# this is an example
+services:
+  opencode:
+    container_name: coder
+    image: opencode-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # - "OPENCODE_SERVER_PASSWORD=123"
+      - "OPENCODE_SERVER_HOSTNAME=0.0.0.0"
+      - "OPENCODE_SERVER_PORT=4096"
+      # - "OPENCODE_SERVER_CORS=[google.com,example.com]"
+    ports:
+      - "14096:4096"
+    volumes:
+      - "./project-1:/projects/project-1"
+      - "./project-2:/projects/project-2"
